@@ -1,8 +1,16 @@
 # kimi2api-tool-calls
 
 > 为 [lorsque-sir/kimi2api](https://github.com/lorsque-sir/kimi2api) 添加 OpenAI 标准 `tool_calls` 支持的外挂补丁。
+> 
+> **用免费的 Kimi 网页账号驱动一个能读文件、写代码、执行命令的完整 AI Agent。**
 
 kimi2api 将 Kimi Web 端（www.kimi.com）逆向为 OpenAI 兼容的 `/v1/chat/completions` 接口，但原生不支持 `tools` / `tool_calls`。本插件通过 prompt 注入 + XML 解析的方式，让 kimi2api 能返回标准的 OpenAI tool_calls 响应，使其可以接入需要工具调用能力的 AI Agent 框架（如 Hermes Agent、AutoGen、LangChain 等）。
+
+### 为什么需要这个？
+
+Kimi 官方提供了 Agent 模型（K2.6 Agent / Agent 集群），但那些是**服务端闭环**——Kimi 自己搜索、自己执行代码、自己返回结果，外部框架无法介入工具调用过程。
+
+而 Hermes Agent、LangChain 等 AI Agent 框架需要的是**标准 OpenAI tool_calls 协议**：框架发送工具定义 → 模型决定调哪个工具 → 框架本地执行 → 结果回填给模型。这个插件正是补上了这个缺口，让普通 kimi-k2.6 模型也能参与外部 Agent 的工具调用循环。
 
 ## 工作原理
 
