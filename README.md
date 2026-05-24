@@ -1,6 +1,6 @@
 # kimi2api-tool-calls
 
-> 为 [lorsque-sir/kimi2api](https://github.com/lorsque-sir/kimi2api) 添加 OpenAI 标准 `tool_calls` 支持的外挂补丁。
+> 为 [kimi2api](https://github.com/chopper1026/kimi2api) 添加 OpenAI 标准 `tool_calls` 支持的外挂补丁。
 > 
 > **用免费的 Kimi 网页账号驱动一个能读文件、写代码、执行命令的完整 AI Agent。**
 
